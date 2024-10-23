@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "../CNamedPipeIPC/CNamedPipeClient.h"
+#include "../CNamedPipeIPC/CNamedPipeIPC.h"
 
 VOID OnConnect()
 {

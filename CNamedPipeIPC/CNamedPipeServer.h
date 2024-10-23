@@ -1,39 +1,9 @@
 #pragma once
 
-#include <windows.h>
-#include <tchar.h>
-#include <vector>
-#include <memory>
-#include <mutex>
+#include "CNamedPipeIPC.h"
 
 #define MAX_PIPE_INSTANCES		16
 #define MAX_PIPE_BUFFER_SIZE	4096
-
-class MemBuffer {
-public:
-	MemBuffer() {}
-	size_t GetCurrentSize() { return buffer_.size(); }
-	bool AddItem(LPVOID item, size_t item_size) {
-		if (item == nullptr) {
-			return false;
-		}
-		BYTE* copy_ptr = (BYTE*)item;
-		for (size_t i = 0; i < item_size; i++) {
-			try {
-				buffer_.emplace_back(*copy_ptr++);
-			}
-			catch (...) {
-				return false;
-			}
-		}
-		return true;
-	}
-	LPVOID AccessMem() { return buffer_.data(); }
-	void ClearMemory() { buffer_.clear(); }
-
-private:
-	std::vector<BYTE> buffer_;
-};
 
 typedef VOID (*PON_CONNECTED_CALLBACK) (DWORD pipeIndex);
 typedef VOID (*PON_DISCONNECTED_CALLBACK) (DWORD pipeIndex);

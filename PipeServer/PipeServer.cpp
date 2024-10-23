@@ -2,7 +2,7 @@
 //
 
 #include <iostream>
-#include "../CNamedPipeIPC/CNamedPipeServer.h"
+#include "../CNamedPipeIPC/CNamedPipeIPC.h"
 
 std::vector<DWORD> g_vPipeInstances;
 HANDLE g_hEventConnected = NULL;

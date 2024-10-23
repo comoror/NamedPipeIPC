@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="CNamedPipeClient.h" />
+    <ClInclude Include="CNamedPipeIPC.h" />
     <ClInclude Include="CNamedPipeServer.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
